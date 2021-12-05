@@ -1,23 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+// import './App.css';
 
+// import ReactDOM from "react-dom";
+// import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+// function App() {
+//   return (
+//     <Router>
+//     {/* <div>
+//       <Link to="/">Home</Link>
+//     </div>
+//     <div>
+//       <Link to="/blogs">Blog Articles</Link>
+//     </div>
+//     <div>
+//       <Link to="/contact">Contact Me</Link>
+//     </div>
+
+//     <hr /> */}
+
+//     <Switch>
+//       <Route exact path="/">
+//         <Login />
+//       </Route>
+//       {/* <Route path="/blogs">
+//         <Blogs />
+//       </Route>
+//       <Route path="/contact">
+//         <Contact />
+//       </Route> */}
+//     </Switch>
+//   </Router>
+//   );
+// }
+
+// ReactDOM.render(<App />, document.getElementById("root"));
+
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Login from './components/login'
+import Home from './components/home'
+
+import './App.css';
+import './css/style.css'
+import './plugins/bootstrap/dist/css/bootstrap.min.css'
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{overflowX:"hidden"}}>
+      <Router>
+        <Routes>
+          <Route path="/" exact element={<Login />} />
+          <Route path="/home" exact element={<Home />} />
+
+        </Routes>
+      </Router>
     </div>
   );
 }
